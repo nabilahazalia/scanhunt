@@ -1,0 +1,9 @@
+{
+  "target": "https://lab.example.com",
+  "vulnerabilities": [
+    {"type": "SQL Injection", "severity": "critical", "url": "https://lab.example.com/item?id=1", "parameter": "id", "payload": "' OR 1=1", "evidence": "error in response"},
+    {"type": "XSS", "severity": "medium", "url": "https://lab.example.com/search", "parameter": "q", "payload": "<script>", "evidence": "reflected"},
+    {"type": "SSRF", "severity": "high", "url": "https://lab.example.com/fetch?url=", "parameter": "url", "payload": "http://169.254.169.254/", "evidence": "metadata echoed"},
+    {"type": "Open Redirect", "severity": "low", "url": "https://lab.example.com/redirect?to=", "parameter": "to", "payload": "https://evil.com", "evidence": "302 to external"}
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "target": "https://lab.example.com",
+  "vulnerabilities": [
+    {
+      "type": "SQL Injection",
+      "severity": "critical",
+      "url": "https://lab.example.com/item?id=1\u0026x=2",
+      "parameter": "id",
+      "payload": "' OR 1=1",
+      "evidence": "error in response",
+      "remediation": "",
+      "fingerprint": "3b0a2549014da823"
+    },
+    {
+      "type": "XSS",
+      "severity": "medium",
+      "url": "https://lab.example.com/search",
+      "parameter": "q",
+      "payload": "\u003cscript\u003e",
+      "evidence": "reflected",
+      "remediation": "",
+      "fingerprint": "8632cec71ce3ea6c"
+    },
+    {
+      "type": "IDOR / BOLA",
+      "severity": "high",
+      "url": "https://lab.example.com/api/user/1337",
+      "parameter": "userid",
+      "payload": "1338",
+      "evidence": "len delta 300",
+      "remediation": "",
+      "fingerprint": "c66f9a4712220ae8"
+    }
+  ]
+}
